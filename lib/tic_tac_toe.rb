@@ -92,3 +92,4 @@ def move(board, index, current_player = "X")
 end
 
 def play
+  board = Array.new(9, " ")
