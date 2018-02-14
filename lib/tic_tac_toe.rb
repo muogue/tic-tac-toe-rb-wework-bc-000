@@ -1,3 +1,8 @@
+# Helper Method
+def position_taken?(board, index)
+  !(board[index].nil? || board[index] == " ")
+end
+
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
   [0,1,2], # Top row
@@ -10,6 +15,39 @@ WIN_COMBINATIONS = [
   [0,3,6]
   # ETC, an array for each win combination
 ]
+
+def won?(board)
+  WIN_COMBINATIONS.each do |combo|
+    if board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]] && board[combo[0]] != " "
+      return combo
+    end
+  end
+  return false
+end
+
+def full?(board)
+  !(board.include? " ")
+end
+
+def draw?(board)
+  if (!full?(board))
+    return false
+  end
+  !(won?(board))
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  if (draw?(board))
+    nil
+  elsif won?(board)
+    return board[won?(board)[0]]
+  end
+  nil
+end
 
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
