@@ -93,5 +93,5 @@ end
 
 def play
   board = Array.new(9, " ")
-  
+  turn(board)
 end
