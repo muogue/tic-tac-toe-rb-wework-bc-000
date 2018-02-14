@@ -94,7 +94,7 @@ end
 def play
   board = Array.new(9, " ")
   while (!over?(board))
-
     turn(board)
   end
+  
 end
