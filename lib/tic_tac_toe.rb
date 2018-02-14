@@ -91,7 +91,7 @@ def move(board, index, current_player = "X")
   board[index] = current_player
 end
 
-def play
+def play(board)
   while (!over?(board))
     turn(board)
   end
